@@ -359,6 +359,14 @@
       flex-shrink: 0;
     }
 
+    .header__logo-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+
     .header__logo-mark {
       width: 44px;
       height: 44px;
@@ -1523,7 +1531,9 @@
     <div class="header__inner">
 
       <a href="#" class="header__logo" aria-label="Paulistana Pizza - Início">
-        <div class="header__logo-mark" aria-hidden="true">🍕</div>
+        <img src="logo.png" alt="Logo Paulistana Pizza" class="header__logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="header__logo-mark" aria-hidden="true" style="display:none">🍕</div>
         <div class="header__logo-text">
           <span>Paulistana</span>
           <span>Pizza • Morrinhos-GO</span>
@@ -1751,64 +1761,64 @@
 
     <div class="promo-cards">
 
-      <article class="promo-card promo-card--fire reveal" aria-label="Promoção Sexta de Fogo">
-        <span class="promo-card__icon" aria-hidden="true">🔥</span>
-        <span class="promo-card__tag" style="color:#ff6b6b;">Toda Sexta-Feira</span>
-        <h3 class="promo-card__title">Sexta de Fogo</h3>
-        <p class="promo-card__desc">Leve 2 pizzas tradicionais tamanho grande e pague apenas 1,6x. A segunda tem 40% de desconto!</p>
+      <article class="promo-card promo-card--fire reveal" aria-label="Combo Especial">
+        <span class="promo-card__icon" aria-hidden="true">⭐</span>
+        <span class="promo-card__tag" style="color:#ff6b6b;">Combo Especial</span>
+        <h3 class="promo-card__title">Combo Especial</h3>
+        <p class="promo-card__desc">1 pizza especial grande + 4 sfihas (salgadas ou doces) + 1 refrigerante 1L. Escolha o sabor que quiser!</p>
         <div class="promo-card__value">
-          <span class="promo-card__value-from">R$ 79,90</span>
-          <span class="promo-card__value-to">R$ 63,92</span>
+          <span class="promo-card__value-from">R$ 97,00</span>
+          <span class="promo-card__value-to">R$ 80,00</span>
         </div>
         <a
-          href="https://wa.me/5564993012526?text=Oi!%20Quero%20a%20promo%20Sexta%20de%20Fogo%20🔥"
+          href="https://wa.me/5564993012526?text=Oi!%20Quero%20o%20Combo%20Especial%20⭐%20(pizza%20especial%20grande%20%2B%204%20sfihas%20%2B%20refri)"
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn--primary promo-card__cta"
         >
-          Quero Essa! 🔥
+          Quero Essa! ⭐
         </a>
         <span class="promo-card__bg-icon" aria-hidden="true">🍕</span>
       </article>
 
-      <article class="promo-card promo-card--gold reveal" aria-label="Combo Família">
-        <span class="promo-card__icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
-        <span class="promo-card__tag" style="color:#f5a623;">Combo Família</span>
-        <h3 class="promo-card__title">Noite em Família</h3>
-        <p class="promo-card__desc">2 pizzas grandes + 1 refrigerante 2L. Escolha os sabores que quiser entre as tradicionais!</p>
+      <article class="promo-card promo-card--gold reveal" aria-label="Combo Tradicional">
+        <span class="promo-card__icon" aria-hidden="true">🍕</span>
+        <span class="promo-card__tag" style="color:#f5a623;">Combo Tradicional</span>
+        <h3 class="promo-card__title">Combo Tradicional</h3>
+        <p class="promo-card__desc">1 pizza tradicional grande + 4 sfihas (salgadas ou doces) + 1 refrigerante 1L. Ótimo custo-benefício!</p>
         <div class="promo-card__value">
-          <span class="promo-card__value-from">R$ 109,70</span>
-          <span class="promo-card__value-to">R$ 89,90</span>
+          <span class="promo-card__value-from">R$ 87,00</span>
+          <span class="promo-card__value-to">R$ 75,00</span>
         </div>
         <a
-          href="https://wa.me/5564993012526?text=Oi!%20Quero%20o%20Combo%20Família%20👨‍👩‍👧‍👦"
+          href="https://wa.me/5564993012526?text=Oi!%20Quero%20o%20Combo%20Tradicional%20🍕%20(pizza%20tradicional%20grande%20%2B%204%20sfihas%20%2B%20refri)"
           target="_blank"
           rel="noopener noreferrer"
           class="btn promo-card__cta"
           style="background: linear-gradient(135deg,#f5a623,#e08a00); color:#fff;"
         >
-          Quero Essa! 🎉
+          Quero Essa! 🍕
         </a>
         <span class="promo-card__bg-icon" aria-hidden="true">🍕</span>
       </article>
 
-      <article class="promo-card promo-card--night reveal" aria-label="Primeiro Pedido">
-        <span class="promo-card__icon" aria-hidden="true">🎁</span>
-        <span class="promo-card__tag" style="color:#818cf8;">Primeiro Pedido</span>
-        <h3 class="promo-card__title">Bem-Vindo!</h3>
-        <p class="promo-card__desc">Na sua primeira compra pelo WhatsApp, ganhe uma sobremesa (brigadeirão ou mini brownie) de presente!</p>
+      <article class="promo-card promo-card--night reveal" aria-label="Borda Grátis">
+        <span class="promo-card__icon" aria-hidden="true">🧀</span>
+        <span class="promo-card__tag" style="color:#818cf8;">Sempre Ativo</span>
+        <h3 class="promo-card__title">Borda Recheada Grátis!</h3>
+        <p class="promo-card__desc">Todas as pizzas saem com borda recheada grátis — escolha catupiry, cheddar ou chocolate. Sem taxa de entrega também!</p>
         <div class="promo-card__value">
           <span class="promo-card__value-from" style="visibility:hidden;">—</span>
           <span class="promo-card__value-to" style="font-size: var(--text-2xl);">Grátis 🎁</span>
         </div>
         <a
-          href="https://wa.me/5564993012526?text=Oi!%20É%20meu%20primeiro%20pedido%20🎁"
+          href="https://wa.me/5564993012526?text=Oi!%20Quero%20fazer%20um%20pedido%20🍕%20Qual%20borda%20tem%20disponível?"
           target="_blank"
           rel="noopener noreferrer"
           class="btn promo-card__cta"
           style="background: linear-gradient(135deg,#6366f1,#4f46e5); color:#fff;"
         >
-          Quero Essa! 🎁
+          Pedir Agora! 🧀
         </a>
         <span class="promo-card__bg-icon" aria-hidden="true">🎉</span>
       </article>
@@ -1838,214 +1848,35 @@
       <button class="category-tab active" role="tab" aria-selected="true" data-category="tradicionais">
         <span class="icon">🍕</span> Tradicionais
       </button>
-      <button class="category-tab" role="tab" aria-selected="false" data-category="especiais" onclick="showComingSoon(this)">
+      <button class="category-tab" role="tab" aria-selected="false" data-category="especiais">
         <span class="icon">⭐</span> Especiais
       </button>
-      <button class="category-tab" role="tab" aria-selected="false" data-category="doces" onclick="showComingSoon(this)">
+      <button class="category-tab" role="tab" aria-selected="false" data-category="doces">
         <span class="icon">🍫</span> Doces
       </button>
-      <button class="category-tab" role="tab" aria-selected="false" data-category="brotinho" onclick="showComingSoon(this)">
-        <span class="icon">🔸</span> Brotinho
+      <button class="category-tab" role="tab" aria-selected="false" data-category="sfihas">
+        <span class="icon">🥙</span> Sfihas
       </button>
-      <button class="category-tab" role="tab" aria-selected="false" data-category="bebidas" onclick="showComingSoon(this)">
-        <span class="icon">🥤</span> Bebidas
+      <button class="category-tab" role="tab" aria-selected="false" data-category="bordas">
+        <span class="icon">🧀</span> Bordas Especiais
       </button>
     </div>
 
-    <!-- Pizza Grid -->
-    <div class="pizza-grid" id="pizzaGrid">
+    <!-- Info de preços por categoria -->
+    <div id="categoryInfo" class="reveal" style="
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-6);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+    "></div>
 
-      <!-- CARD 1 -->
-      <article class="pizza-card reveal" data-name="Calabresa Especial" aria-label="Pizza Calabresa Especial">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza de Calabresa">🍕</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--red">🔥 Mais Pedida</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Calabresa Especial">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Calabresa Especial</h3>
-          <p class="pizza-card__ingredients">Molho de tomate caseiro, calabresa fatiada, cebola, azeitona, orégano e mussarela</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 39,90</span>
-            </div>
-            <button
-              class="pizza-card__add-btn"
-              onclick="addToOrder('Calabresa Especial')"
-              aria-label="Pedir Calabresa Especial pelo WhatsApp"
-              title="Pedir pelo WhatsApp"
-            >+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 2 -->
-      <article class="pizza-card reveal" data-name="Margherita" aria-label="Pizza Margherita">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Margherita">🍅</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--green">✓ Vegetariana</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Margherita">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Margherita</h3>
-          <p class="pizza-card__ingredients">Molho de tomate, mussarela de búfala, tomate fresco, manjericão e azeite extra virgem</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 38,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Margherita')" aria-label="Pedir Margherita">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 3 -->
-      <article class="pizza-card reveal" data-name="Portuguesa" aria-label="Pizza Portuguesa">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Portuguesa">🫒</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--gold">⭐ Favorita</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Portuguesa">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Portuguesa</h3>
-          <p class="pizza-card__ingredients">Mussarela, presunto, ovo, cebola, pimentão, azeitona preta e orégano</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 41,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Portuguesa')" aria-label="Pedir Portuguesa">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 4 -->
-      <article class="pizza-card reveal" data-name="Frango com Catupiry" aria-label="Pizza Frango com Catupiry">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza de Frango com Catupiry">🐔</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--red">🔥 Top 3</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Frango com Catupiry">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Frango c/ Catupiry</h3>
-          <p class="pizza-card__ingredients">Frango desfiado temperado, requeijão catupiry cremoso, mussarela e orégano</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 43,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Frango c/ Catupiry')" aria-label="Pedir Frango com Catupiry">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 5 -->
-      <article class="pizza-card reveal" data-name="Quatro Queijos" aria-label="Pizza Quatro Queijos">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Quatro Queijos">🧀</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--green">✓ Vegetariana</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Quatro Queijos">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Quatro Queijos</h3>
-          <p class="pizza-card__ingredients">Mussarela, provolone, gorgonzola, parmesão e orégano. Para quem ama queijo de verdade!</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 45,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Quatro Queijos')" aria-label="Pedir Quatro Queijos">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 6 -->
-      <article class="pizza-card reveal" data-name="Pepperoni" aria-label="Pizza Pepperoni">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Pepperoni">🌶️</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--red">🌶️ Picante</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Pepperoni">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Pepperoni</h3>
-          <p class="pizza-card__ingredients">Molho de tomate, mussarela generosa, pepperoni importado fatiado e azeitona verde</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 46,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Pepperoni')" aria-label="Pedir Pepperoni">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 7 -->
-      <article class="pizza-card reveal" data-name="Napolitana" aria-label="Pizza Napolitana">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Napolitana">🍕</div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Napolitana">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Napolitana</h3>
-          <p class="pizza-card__ingredients">Mussarela, tomate fresco, anchovas, alcaparras e azeite temperado. Um clássico italiano</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 42,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Napolitana')" aria-label="Pedir Napolitana">+</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- CARD 8 -->
-      <article class="pizza-card reveal" data-name="Mista (Calabresa + Frango)" aria-label="Pizza Mista">
-        <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="Pizza Mista">🍕</div>
-          <div class="pizza-card__badges">
-            <span class="badge badge--gold">💡 Sugestão</span>
-          </div>
-          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar Mista">🤍</button>
-        </div>
-        <div class="pizza-card__body">
-          <h3 class="pizza-card__name">Mista</h3>
-          <p class="pizza-card__ingredients">Escolha dois sabores tradicionais numa só pizza! Separados pela metade com a combinação que quiser</p>
-          <div class="pizza-card__footer">
-            <div class="pizza-card__prices">
-              <span class="pizza-card__price-label">A partir de</span>
-              <span class="pizza-card__price">R$ 44,90</span>
-            </div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('Pizza Mista')" aria-label="Pedir Pizza Mista">+</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Ver mais -->
-    <div style="text-align: center; margin-top: var(--space-10);">
-      <a
-        href="https://wa.me/5564993012526?text=Oi!%20Quero%20ver%20o%20cardápio%20completo%20📋"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn--outline btn--lg"
-      >
-        📋 Ver cardápio completo no WhatsApp
-      </a>
-    </div>
+    <!-- Pizza/Produto Grid (preenchido por JS) -->
+    <div class="pizza-grid" id="pizzaGrid"></div>
 
   </div>
 </section>
@@ -2260,18 +2091,218 @@
      JAVASCRIPT
 ============================================================ -->
 <script>
+  // ── MENU DATA ─────────────────────────────────────────────
+  const MENU = {
+    tradicionais: {
+      label: 'Pizzas Tradicionais',
+      infoHtml: `<span>🍕 <strong>Média</strong> (6 fatias) — R$ 50,00</span><span style="color:var(--text-muted)">|</span><span>🍕 <strong>Grande</strong> (8 fatias) — R$ 55,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Entrega e borda recheada grátis!</span>`,
+      precoMedio: 50, precoGrande: 55,
+      tipo: 'pizza',
+      items: [
+        { name:'Calabresa',                emoji:'🍕', badge:'🔥 Mais Pedida', badgeVar:'red',   ing:'Mussarela, molho de tomate, calabresa em fatias e cebola' },
+        { name:'Frango com Catupiry',       emoji:'🐔', badge:'🔥 Top 3',      badgeVar:'red',   ing:'Molho de tomate, frango desfiado, mussarela e requeijão cremoso Catupiry' },
+        { name:'Portuguesa Tradicional',    emoji:'🫒', badge:'⭐ Favorita',   badgeVar:'gold',  ing:'Molho de tomate, mussarela, presunto, ovos picados e cebola' },
+        { name:'Mussarela',                 emoji:'🧀', badge:'✓ Clássica',   badgeVar:'green', ing:'Molho de tomate, mussarela e tomate fatiado' },
+        { name:'Marguerita',                emoji:'🍅', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, mussarela, manjericão, tomate e parmesão' },
+        { name:'Quatro Queijos',            emoji:'🧀', badge:'⭐ Especial',   badgeVar:'gold',  ing:'Molho de tomate italiano, mussarela, provolone, gorgonzola e parmesão' },
+        { name:'Napolitana',                emoji:'🍕', ing:'Molho de tomate, mussarela, presunto, tomate e orégano' },
+        { name:'Frango BBQ',                emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado e molho barbecue Heinz' },
+        { name:'Bacon',                     emoji:'🥓', ing:'Molho de tomate, mussarela, cebola e bacon frito' },
+        { name:'NapoliBacon',               emoji:'🍕', ing:'Molho de tomate, presunto, bacon frito e mussarela' },
+        { name:'Lombinho',                  emoji:'🍖', ing:'Molho de tomate, mussarela, lombinho canadense defumado, cebola e catupiry' },
+        { name:'Atum',                      emoji:'🐟', ing:'Molho de tomate, lascas de atum sólido, mussarela e cebola' },
+        { name:'Alho e Óleo',               emoji:'🧄', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, alho desidratado, azeite italiano e parmesão' },
+        { name:'Light',                     emoji:'🥗', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, palmito, milho e mussarela' },
+      ]
+    },
+    especiais: {
+      label: 'Pizzas Especiais',
+      infoHtml: `<span>⭐ <strong>Média</strong> (6 fatias, 2 sabores) — R$ 60,00</span><span style="color:var(--text-muted)">|</span><span>⭐ <strong>Grande</strong> (8 fatias, 2 sabores) — R$ 65,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Entrega e borda recheada grátis!</span>`,
+      precoMedio: 60, precoGrande: 65,
+      tipo: 'pizza',
+      items: [
+        { name:'Paulistana a Moda da Casa', emoji:'🍕', badge:'🏆 Da Casa',    badgeVar:'gold',  ing:'Mussarela, molho de tomate, frango desfiado, lombinho canadense defumado, cream cheese e catupiry' },
+        { name:'5 Carnes',                  emoji:'🥩', badge:'🔥 Top 3',      badgeVar:'red',   ing:'Molho de tomate, mussarela, bacon frito, lombinho canadense, frango desfiado, presunto, calabresa e molho BBQ' },
+        { name:'Frangonese',                emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado, bacon, maionese Heinz, cream cheese e orégano' },
+        { name:'Cheff Especial',            emoji:'👨‍🍳', ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, cebola, orégano e catupiry' },
+        { name:'Carijó',                    emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, palmito, milho, bacon frito, cream cheese e catupiry' },
+        { name:'Padoro',                    emoji:'🍕', ing:'Molho de tomate, mussarela, bacon frito, lombo canadense, calabresa, palmito e catupiry' },
+        { name:'Bacon Supreme',             emoji:'🥓', badge:'🔥 Campeão',    badgeVar:'red',   ing:'Molho de tomate, mussarela, frango desfiado, bacon frito fatiado, palmito e catupiry' },
+        { name:'6 Formaggio',               emoji:'🧀', badge:'⭐ Premium',    badgeVar:'gold',  ing:'Molho de tomate, mussarela, provolone, cream cheese, parmesão, gorgonzola e catupiry' },
+        { name:'Texas Bacon Barbecue',      emoji:'🤠', ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, palmito e molho barbecue Heinz' },
+        { name:'Papa John\'s America',      emoji:'🇺🇸', ing:'Molho de tomate, mussarela, pepperoni americano, bacon frito, calabresa e molho BBQ Heinz' },
+        { name:'Catupperoni',               emoji:'🌶️', ing:'Molho de tomate, mussarela, bacon frito, pepperoni americano e catupiry' },
+        { name:'Peperoni America',          emoji:'🌶️', ing:'Molho de tomate, mussarela e pepperoni americano fatiado' },
+        { name:'Frango Cremoso',            emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado, lombo canadense defumado, cebola, orégano e catupiry' },
+        { name:'Frango Aos 3 Queijos',      emoji:'🧀', ing:'Molho de tomate, mussarela, frango desfiado, calabresa, milho, cheddar e catupiry' },
+        { name:'Francheddar',               emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, bacon, cheddar, milho e orégano' },
+        { name:'Super Cheddar',             emoji:'🧀', ing:'Molho de tomate, mussarela, presunto, calabresa, cebola e cheddar derretido' },
+        { name:'Domino\'s',                 emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, palmito, orégano, cebola, calabresa e catupiry' },
+        { name:'Honey',                     emoji:'🍯', ing:'Molho de tomate, mussarela, frango desfiado, presunto, cebola, calabresa e catupiry' },
+        { name:'Villa Cheddar Especial',    emoji:'🧀', ing:'Molho de tomate, mussarela, presunto, milho, calabresa, orégano, cheddar e catupiry' },
+        { name:'Garlic Especial',           emoji:'🧄', ing:'Molho de tomate, mussarela, presunto, bacon frito, alho frito, cebola e catupiry' },
+        { name:'Light Especial',            emoji:'🥗', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, mussarela, frango desfiado, brócolis, ervilhas frescas, alho desidratado e catupiry' },
+        { name:'Calabresa Egg Especial',    emoji:'🍕', ing:'Molho de tomate, calabresa, cebola, palmito, ovo, mussarela e catupiry' },
+        { name:'Calabresa Especial',        emoji:'🍕', ing:'Molho de tomate, cebola, bacon frito, mussarela, calabresa especial e catupiry' },
+        { name:'Palmito Especial',          emoji:'🥬', ing:'Molho de tomate, mussarela, palmito, milho e bacon frito' },
+        { name:'Portuguesa Especial',       emoji:'🫒', ing:'Molho de tomate, mussarela, presunto, ovo, bacon, calabresa e cebola' },
+        { name:'Vegetariana',               emoji:'🥦', badge:'✓ Vegetariana',badgeVar:'green', ing:'Mussarela, molho de tomate, tomate fatiado, brócolis, milho, palmito, ervilha e gorgonzola' },
+        { name:'Atum Especial',             emoji:'🐟', ing:'Molho de tomate, mussarela, brócolis, alho frito, atum, cebola e catupiry' },
+      ]
+    },
+    doces: {
+      label: 'Pizzas Doces',
+      infoHtml: `<span>🍫 <strong>Média</strong> (6 fatias) — R$ 50,00</span><span style="color:var(--text-muted)">|</span><span>🍫 <strong>Grande</strong> (8 fatias) — R$ 55,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Todas acompanham borda de chocolate grátis!</span>`,
+      precoMedio: 50, precoGrande: 55,
+      tipo: 'pizza',
+      items: [
+        { name:'Chocolate ao Leite',                    emoji:'🍫', badge:'🍫 Doce',badgeVar:'gold', ing:'Cremoso chocolate ao leite derretido. Acompanha borda de chocolate grátis.' },
+        { name:'Chocolate ao Leite c/ Chocolate Branco',emoji:'🤍', badge:'🤍 Doce',badgeVar:'gold', ing:'Combinação de chocolate ao leite e chocolate branco. Borda de chocolate grátis.' },
+      ]
+    },
+    sfihas: {
+      label: 'Sfihas',
+      infoHtml: `<span>🥙 <strong>Preço unitário</strong> — R$ 8,00 cada</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Disponível salgadas e doces</span>`,
+      preco: 8,
+      tipo: 'sfiha',
+      items: [
+        { name:'3 Queijos',                   emoji:'🧀', badge:'⭐ Popular',  badgeVar:'gold',  ing:'Catupiry, cheddar e mussarela' },
+        { name:'Calabresa',                    emoji:'🍕', ing:'Calabresa e mussarela' },
+        { name:'Frango',                       emoji:'🍗', badge:'🔥 Pedida',  badgeVar:'red',   ing:'Frango desfiado e mussarela' },
+        { name:'Palmito Light',                emoji:'🥬', badge:'✓ Light',    badgeVar:'green', ing:'Palmito e mussarela' },
+        { name:'Bacon',                        emoji:'🥓', ing:'Bacon em cubos e mussarela' },
+        { name:'Presunto',                     emoji:'🍖', ing:'Presunto e mussarela' },
+        { name:'Apimentada',                   emoji:'🌶️', badge:'🌶️ Picante', badgeVar:'red',   ing:'Calabresa, mussarela e pimenta' },
+        { name:'Calabresa c/ Catupiry',        emoji:'🍕', ing:'Calabresa, mussarela e catupiry' },
+        { name:'Paulistana',                   emoji:'🏆', badge:'🏆 Da Casa', badgeVar:'gold',  ing:'Lombinho, catupiry e mussarela' },
+        { name:'Americana',                    emoji:'🇺🇸', ing:'Mussarela, bacon e molho BBQ' },
+        { name:'Frango Cremoso',               emoji:'🍗', ing:'Frango desfiado, catupiry e bacon' },
+        { name:'Cheddar e Bacon',              emoji:'🧀', ing:'Bacon em cubos, catupiry e queijo cheddar' },
+        { name:'Bacon c/ Mussarela e Palmito', emoji:'🥓', ing:'Bacon em cubos, mussarela e palmito' },
+        { name:'Romeu e Julieta',              emoji:'🍓', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Queijo e goiabada' },
+        { name:'Chocolate ao Leite',           emoji:'🍫', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Recheio de chocolate ao leite' },
+        { name:'Chocolate Branco',             emoji:'🤍', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Recheio de chocolate branco' },
+      ]
+    },
+    bordas: {
+      label: 'Bordas Especiais',
+      infoHtml: `<span>🧀 Bordas pagas são cobradas por pizza</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Catupiry, Cheddar e Chocolate são GRÁTIS em todas as pizzas!</span>`,
+      tipo: 'borda',
+      items: [
+        { name:'Catupiry',        emoji:'🤍', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com catupiry cremoso' },
+        { name:'Cheddar',         emoji:'🧀', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com cheddar derretido' },
+        { name:'Chocolate',       emoji:'🍫', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com chocolate ao leite (pizzas doces)' },
+        { name:'Mussarela',       emoji:'🧀', preco:'R$ 10,00', ing:'Borda recheada com mussarela derretida' },
+        { name:'Mussarela e Bacon',emoji:'🥓',preco:'R$ 10,00', ing:'Borda recheada com mussarela e bacon crocante' },
+        { name:'Catupiry e Bacon', emoji:'🤍',preco:'R$ 10,00', ing:'Borda recheada com catupiry e bacon frito' },
+        { name:'Cheddar e Bacon',  emoji:'🧀',preco:'R$ 15,00', badge:'⭐ Premium', badgeVar:'gold', ing:'Borda recheada com cheddar e bacon frito (a mais pedida!)' },
+      ]
+    }
+  };
+
+  // ── Render Functions ───────────────────────────────────────
+  function pizzaCardHTML(item, tipo, cat) {
+    const isSfiha  = tipo === 'sfiha';
+    const isBorda  = tipo === 'borda';
+    const catData  = MENU[cat];
+
+    let priceHTML;
+    if (isSfiha) {
+      priceHTML = `<span class="pizza-card__price-label">Unitário</span>
+                   <span class="pizza-card__price">R$ 8,00</span>`;
+    } else if (isBorda) {
+      priceHTML = `<span class="pizza-card__price-label">Borda</span>
+                   <span class="pizza-card__price" style="font-size:var(--text-xl)">${item.preco || ''}</span>`;
+    } else {
+      priceHTML = `<span class="pizza-card__price-label">Média R$ ${catData.precoMedio} · Grande R$ ${catData.precoGrande}</span>
+                   <span class="pizza-card__price">R$ ${catData.precoMedio},00</span>`;
+    }
+
+    const badgeHTML = item.badge
+      ? `<div class="pizza-card__badges"><span class="badge badge--${item.badgeVar || 'red'}">${item.badge}</span></div>`
+      : '';
+
+    const addLabel = isBorda ? 'Pedir com essa borda' : `Pedir ${item.name}`;
+    const msg = isBorda
+      ? `Olá! Quero adicionar a borda de ${item.name} na minha pizza 🧀`
+      : isSfiha
+        ? `Olá! Quero pedir a sfiha de ${item.name} 🥙 Quantas unidades?`
+        : `Olá! Quero pedir a pizza ${item.name} 🍕 Qual tamanho, média ou grande?`;
+
+    return `
+      <article class="pizza-card" aria-label="${item.name}">
+        <div class="pizza-card__img-wrap">
+          <div class="pizza-card__img" role="img" aria-label="${item.name}">${item.emoji}</div>
+          ${badgeHTML}
+          <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar ${item.name}">🤍</button>
+        </div>
+        <div class="pizza-card__body">
+          <h3 class="pizza-card__name">${item.name}</h3>
+          <p class="pizza-card__ingredients">${item.ing}</p>
+          <div class="pizza-card__footer">
+            <div class="pizza-card__prices">${priceHTML}</div>
+            <button class="pizza-card__add-btn" onclick="addToOrder('${item.name.replace(/'/g,"\\'")}','${msg.replace(/'/g,"\\'")}')
+" aria-label="${addLabel}" title="Pedir pelo WhatsApp">+</button>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function renderCategory(cat) {
+    const data  = MENU[cat];
+    const grid  = document.getElementById('pizzaGrid');
+    const info  = document.getElementById('categoryInfo');
+
+    // Update info bar
+    info.innerHTML = data.infoHtml;
+    info.style.display = 'flex';
+
+    // Render cards
+    grid.innerHTML = data.items.map(item => pizzaCardHTML(item, data.tipo, cat)).join('');
+
+    // Re-run scroll reveal on new cards
+    grid.querySelectorAll('.pizza-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      el.style.transitionDelay = `${Math.min(i * 0.05, 0.4)}s`;
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Update section title
+    const title = document.getElementById('menu-title');
+    if (title) title.textContent = data.label;
+  }
+
+  // ── Category Tabs ─────────────────────────────────────────
+  document.querySelectorAll('.category-tab').forEach(tab => {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.category-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+      renderCategory(this.dataset.category);
+    });
+  });
+
+  // Render default category on load
+  renderCategory('tradicionais');
+
   // ── Theme Toggle ──────────────────────────────────────────
-  const html         = document.documentElement;
-  const themeToggle  = document.getElementById('themeToggle');
-  const savedTheme   = localStorage.getItem('theme') || 'dark';
+  const html        = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
 
   function applyTheme(t) {
     html.setAttribute('data-theme', t);
     themeToggle.textContent = t === 'dark' ? '🌙' : '☀️';
     localStorage.setItem('theme', t);
   }
-
-  applyTheme(savedTheme);
+  applyTheme(localStorage.getItem('theme') || 'dark');
   themeToggle.addEventListener('click', () => {
     applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark');
   });
@@ -2302,33 +2333,26 @@
 
   navClose.addEventListener('click', closeMobileNav);
   navOverlay.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMobileNav();
-  });
-
-  // ── Scroll Reveal ─────────────────────────────────────────
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer  = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+  // ── Scroll Reveal (static elements) ──────────────────────
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Stagger delay for grid items
         const siblings = entry.target.parentElement.querySelectorAll('.reveal');
         let idx = 0;
         siblings.forEach((s, j) => { if (s === entry.target) idx = j; });
         entry.target.style.transitionDelay = `${Math.min(idx * 0.07, 0.35)}s`;
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
   // ── Favorite Toggle ───────────────────────────────────────
   function toggleFav(btn) {
-    const isFav = btn.textContent === '❤️';
-    btn.textContent = isFav ? '🤍' : '❤️';
+    btn.textContent = btn.textContent === '❤️' ? '🤍' : '❤️';
     btn.style.transform = 'scale(1.3)';
     setTimeout(() => btn.style.transform = '', 200);
   }
@@ -2338,58 +2362,31 @@
   const toastName = document.getElementById('toast-name');
   let toastTimer;
 
-  function addToOrder(name) {
-    // Show toast
-    toastName.textContent = name + ' adicionada!';
+  function addToOrder(name, customMsg) {
+    toastName.textContent = name + ' selecionada!';
+    toast.querySelector('.toast__icon').textContent = '🛒';
+    toast.querySelector('.toast__text span').textContent = 'Abrindo WhatsApp...';
     toast.classList.add('show');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
 
-    // Open WhatsApp after short delay
+    const msg = customMsg || `Olá! Quero pedir ${name} 🍕 Qual o tamanho disponível?`;
     setTimeout(() => {
-      const msg = encodeURIComponent(`Olá! Quero pedir uma ${name} 🍕 Qual o tamanho disponível?`);
-      window.open(`https://wa.me/5564993012526?text=${msg}`, '_blank', 'noopener,noreferrer');
-    }, 600);
-  }
-
-  // ── Category Tabs ─────────────────────────────────────────
-  document.querySelectorAll('.category-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      document.querySelectorAll('.category-tab').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-selected', 'true');
-    });
-  });
-
-  function showComingSoon(el) {
-    const name = el.textContent.trim();
-    toastName.textContent = `${name} — em breve!`;
-    toast.querySelector('.toast__icon').textContent = '📋';
-    toast.querySelector('.toast__text span').textContent = 'Peça pelo WhatsApp por enquanto';
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-      toast.querySelector('.toast__icon').textContent = '🛒';
-      toast.querySelector('.toast__text span').textContent = 'Abra o WhatsApp para finalizar';
-    }, 3000);
+      window.open(`https://wa.me/5564993012526?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    }, 400);
   }
 
   // ── Smooth active nav on scroll ───────────────────────────
-  const sections = ['menu', 'promos', 'highlights', 'footer'];
+  const navSections = ['menu', 'promos', 'highlights', 'footer'];
   window.addEventListener('scroll', () => {
     const y = window.scrollY + 100;
     let current = '';
-    sections.forEach(id => {
+    navSections.forEach(id => {
       const el = document.getElementById(id);
       if (el && el.offsetTop <= y) current = id;
     });
     document.querySelectorAll('.header__nav a').forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
   }, { passive: true });
 </script>
