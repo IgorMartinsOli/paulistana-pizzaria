@@ -976,6 +976,72 @@
     .pizza-card:hover .pizza-card__img,
     .pizza-card:hover .pizza-card__real-img { transform: scale(1.06); }
 
+    /* ── Borda Card ── */
+    .borda-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      transition: var(--transition-base);
+      cursor: pointer;
+    }
+    .borda-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-red);
+    }
+    .borda-card--gratis {
+      border-color: rgba(34,197,94,0.35);
+      background: linear-gradient(135deg, rgba(34,197,94,0.06), var(--bg-card));
+    }
+    .borda-card--gratis:hover { border-color: #22c55e; }
+
+    .borda-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .borda-card--gratis .borda-card__icon {
+      background: rgba(34,197,94,0.12);
+    }
+
+    .borda-card__info { flex: 1; min-width: 0; }
+    .borda-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-1);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .borda-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .borda-card__price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .borda-card__price--free { color: #22c55e; font-size: var(--text-2xl); }
+    .borda-card__price--paid { color: var(--text-primary); }
+
     .pizza-card__badges {
       position: absolute;
       top: var(--space-3);
@@ -2206,19 +2272,36 @@
   };
 
   // ── Render Functions ───────────────────────────────────────
+  function bordaCardHTML(item) {
+    const isGratis = item.preco === 'Grátis';
+    const safeName = item.name.replace(/'/g,"\\'");
+    const safeMsg  = `Olá! Quero a borda de ${item.name} na minha pizza 🧀`.replace(/'/g,"\\'");
+    return `
+      <article class="borda-card${isGratis ? ' borda-card--gratis' : ''}"
+        onclick="addToOrder('${safeName}','${safeMsg}')"
+        aria-label="Borda de ${item.name}">
+        <div class="borda-card__icon" aria-hidden="true">${item.emoji}</div>
+        <div class="borda-card__info">
+          <div class="borda-card__name">
+            ${item.name}
+            ${isGratis ? '<span class="badge badge--green">✅ Grátis</span>' : ''}
+            ${item.badge && !isGratis ? `<span class="badge badge--${item.badgeVar || 'gold'}">${item.badge}</span>` : ''}
+          </div>
+          <p class="borda-card__desc">${item.ing}</p>
+        </div>
+        <div class="borda-card__price ${isGratis ? 'borda-card__price--free' : 'borda-card__price--paid'}">
+          ${isGratis ? 'GRÁTIS' : item.preco}
+        </div>
+      </article>`;
+  }
+
   function pizzaCardHTML(item, tipo, cat) {
     const isSfiha = tipo === 'sfiha';
-    const isBorda = tipo === 'borda';
     const catData = MENU[cat];
 
-    let priceHTML;
-    if (isSfiha) {
-      priceHTML = `<span class="pizza-card__price-label">Unitário</span><span class="pizza-card__price">R$ 8,00</span>`;
-    } else if (isBorda) {
-      priceHTML = `<span class="pizza-card__price-label">Borda</span><span class="pizza-card__price" style="font-size:var(--text-xl)">${item.preco || ''}</span>`;
-    } else {
-      priceHTML = `<span class="pizza-card__price-label">Média R$ ${catData.precoMedio} · Grande R$ ${catData.precoGrande}</span><span class="pizza-card__price">R$ ${catData.precoMedio},00</span>`;
-    }
+    const priceHTML = isSfiha
+      ? `<span class="pizza-card__price-label">Unitário</span><span class="pizza-card__price">R$ 8,00</span>`
+      : `<span class="pizza-card__price-label">Média R$ ${catData.precoMedio} · Grande R$ ${catData.precoGrande}</span><span class="pizza-card__price">R$ ${catData.precoMedio},00</span>`;
 
     const badgeHTML = item.badge
       ? `<div class="pizza-card__badges"><span class="badge badge--${item.badgeVar || 'red'}">${item.badge}</span></div>`
@@ -2231,11 +2314,9 @@
       : `<div class="pizza-card__img" role="img" aria-label="${item.name}">${item.emoji || '🍕'}</div>`;
 
     const safeName = item.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    const msg = isBorda
-      ? `Olá! Quero adicionar a borda de ${item.name} na minha pizza 🧀`
-      : isSfiha
-        ? `Olá! Quero pedir a sfiha de ${item.name} 🥙 Quantas unidades?`
-        : `Olá! Quero pedir a pizza ${item.name} 🍕 Qual tamanho, média ou grande?`;
+    const msg = isSfiha
+      ? `Olá! Quero pedir a sfiha de ${item.name} 🥙 Quantas unidades?`
+      : `Olá! Quero pedir a pizza ${item.name} 🍕 Qual tamanho, média ou grande?`;
     const safeMsg = msg.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
 
     return `
@@ -2258,30 +2339,37 @@
   }
 
   function renderCategory(cat) {
-    const data  = MENU[cat];
-    const grid  = document.getElementById('pizzaGrid');
-    const info  = document.getElementById('categoryInfo');
+    const data = MENU[cat];
+    const grid = document.getElementById('pizzaGrid');
+    const info = document.getElementById('categoryInfo');
 
-    // Update info bar
     info.innerHTML = data.infoHtml;
     info.style.display = 'flex';
 
-    // Render cards
-    grid.innerHTML = data.items.map(item => pizzaCardHTML(item, data.tipo, cat)).join('');
+    const isBorda = data.tipo === 'borda';
 
-    // Re-run scroll reveal on new cards
-    grid.querySelectorAll('.pizza-card').forEach((el, i) => {
+    if (isBorda) {
+      // Lista de 1 coluna para bordas
+      grid.style.gridTemplateColumns = '1fr';
+      grid.innerHTML = data.items.map(item => bordaCardHTML(item)).join('');
+    } else {
+      grid.style.gridTemplateColumns = '';
+      grid.innerHTML = data.items.map(item => pizzaCardHTML(item, data.tipo, cat)).join('');
+    }
+
+    // Animate in
+    const cards = grid.querySelectorAll('.pizza-card, .borda-card');
+    cards.forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-      el.style.transitionDelay = `${Math.min(i * 0.05, 0.4)}s`;
+      el.style.transitionDelay = `${Math.min(i * 0.04, 0.4)}s`;
       requestAnimationFrame(() => {
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
       });
     });
 
-    // Update section title
     const title = document.getElementById('menu-title');
     if (title) title.textContent = data.label;
   }
