@@ -1440,9 +1440,10 @@
     ============================================================ */
     .toast {
       position: fixed;
-      bottom: 100px;
+      top: calc(var(--header-h) + var(--space-4));
       right: var(--space-6);
-      z-index: 998;
+      bottom: auto;
+      z-index: 1000;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
