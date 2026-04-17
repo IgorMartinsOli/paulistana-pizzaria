@@ -965,7 +965,16 @@
       font-size: 5rem;
     }
 
-    .pizza-card:hover .pizza-card__img { transform: scale(1.06); }
+    .pizza-card__real-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .pizza-card:hover .pizza-card__img,
+    .pizza-card:hover .pizza-card__real-img { transform: scale(1.06); }
 
     .pizza-card__badges {
       position: absolute;
@@ -2096,92 +2105,88 @@
     tradicionais: {
       label: 'Pizzas Tradicionais',
       infoHtml: `<span>🍕 <strong>Média</strong> (6 fatias) — R$ 50,00</span><span style="color:var(--text-muted)">|</span><span>🍕 <strong>Grande</strong> (8 fatias) — R$ 55,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Entrega e borda recheada grátis!</span>`,
-      precoMedio: 50, precoGrande: 55,
-      tipo: 'pizza',
+      precoMedio: 50, precoGrande: 55, tipo: 'pizza',
       items: [
-        { name:'Calabresa',                emoji:'🍕', badge:'🔥 Mais Pedida', badgeVar:'red',   ing:'Mussarela, molho de tomate, calabresa em fatias e cebola' },
-        { name:'Frango com Catupiry',       emoji:'🐔', badge:'🔥 Top 3',      badgeVar:'red',   ing:'Molho de tomate, frango desfiado, mussarela e requeijão cremoso Catupiry' },
-        { name:'Portuguesa Tradicional',    emoji:'🫒', badge:'⭐ Favorita',   badgeVar:'gold',  ing:'Molho de tomate, mussarela, presunto, ovos picados e cebola' },
-        { name:'Mussarela',                 emoji:'🧀', badge:'✓ Clássica',   badgeVar:'green', ing:'Molho de tomate, mussarela e tomate fatiado' },
-        { name:'Marguerita',                emoji:'🍅', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, mussarela, manjericão, tomate e parmesão' },
-        { name:'Quatro Queijos',            emoji:'🧀', badge:'⭐ Especial',   badgeVar:'gold',  ing:'Molho de tomate italiano, mussarela, provolone, gorgonzola e parmesão' },
-        { name:'Napolitana',                emoji:'🍕', ing:'Molho de tomate, mussarela, presunto, tomate e orégano' },
-        { name:'Frango BBQ',                emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado e molho barbecue Heinz' },
-        { name:'Bacon',                     emoji:'🥓', ing:'Molho de tomate, mussarela, cebola e bacon frito' },
-        { name:'NapoliBacon',               emoji:'🍕', ing:'Molho de tomate, presunto, bacon frito e mussarela' },
-        { name:'Lombinho',                  emoji:'🍖', ing:'Molho de tomate, mussarela, lombinho canadense defumado, cebola e catupiry' },
-        { name:'Atum',                      emoji:'🐟', ing:'Molho de tomate, lascas de atum sólido, mussarela e cebola' },
-        { name:'Alho e Óleo',               emoji:'🧄', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, alho desidratado, azeite italiano e parmesão' },
-        { name:'Light',                     emoji:'🥗', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, palmito, milho e mussarela' },
+        { name:'Calabresa',               img:'tradicional_Calabresa.avif',                       badge:'🔥 Mais Pedida',badgeVar:'red',   ing:'Mussarela, molho de tomate, calabresa em fatias e cebola' },
+        { name:'Frango com Catupiry',      img:'tradicional_Frango_com_Catupiry_Original.avif',    badge:'🔥 Top 3',     badgeVar:'red',   ing:'Molho de tomate, frango desfiado, mussarela e requeijão cremoso Catupiry' },
+        { name:'Portuguesa Tradicional',   img:'tradicional_Portuguesa_Tradicional.avif',          badge:'⭐ Favorita',  badgeVar:'gold',  ing:'Molho de tomate, mussarela, presunto, ovos picados e cebola' },
+        { name:'Mussarela',                img:'tradicional_Mussarela.avif',                       badge:'✓ Clássica',  badgeVar:'green', ing:'Molho de tomate, mussarela e tomate fatiado' },
+        { name:'Marguerita',               img:'tradicional_Marguerita.avif',                      badge:'✓ Vegetariana',badgeVar:'green',ing:'Molho de tomate, mussarela, manjericão, tomate e parmesão' },
+        { name:'Quatro Queijos',           img:'tradicional_Quatro_Queijos.avif',                  badge:'⭐ Especial',  badgeVar:'gold',  ing:'Molho de tomate italiano, mussarela, provolone, gorgonzola e parmesão' },
+        { name:'Napolitana',               img:'tradicional_Napolitana.avif',                                            ing:'Molho de tomate, mussarela, presunto, tomate e orégano' },
+        { name:'Frango BBQ',               img:'tradicional_Frango_BBQ.avif',                                            ing:'Molho de tomate, mussarela, frango desfiado e molho barbecue Heinz' },
+        { name:'Bacon',                    img:'tradicional_Bacon.avif',                                                  ing:'Molho de tomate, mussarela, cebola e bacon frito' },
+        { name:'NapoliBacon',              img:'tradicional_NapoliBacon.avif',                                            ing:'Molho de tomate, presunto, bacon frito e mussarela' },
+        { name:'Lombinho',                 img:'tradicional_Lombinho.avif',                                               ing:'Molho de tomate, mussarela, lombinho canadense defumado, cebola e catupiry' },
+        { name:'Atum',                     img:'tradicional_Atum.avif',                                                   ing:'Molho de tomate, lascas de atum sólido, mussarela e cebola' },
+        { name:'Alho e Óleo',              img:'tradicional_Alho_e_Óleo.avif',                     badge:'✓ Vegetariana',badgeVar:'green',ing:'Molho de tomate, alho desidratado, azeite italiano e parmesão' },
+        { name:'Light',                    img:'tradicional_Light.avif',                            badge:'✓ Vegetariana',badgeVar:'green',ing:'Molho de tomate, palmito, milho e mussarela' },
       ]
     },
     especiais: {
       label: 'Pizzas Especiais',
       infoHtml: `<span>⭐ <strong>Média</strong> (6 fatias, 2 sabores) — R$ 60,00</span><span style="color:var(--text-muted)">|</span><span>⭐ <strong>Grande</strong> (8 fatias, 2 sabores) — R$ 65,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Entrega e borda recheada grátis!</span>`,
-      precoMedio: 60, precoGrande: 65,
-      tipo: 'pizza',
+      precoMedio: 60, precoGrande: 65, tipo: 'pizza',
       items: [
-        { name:'Paulistana a Moda da Casa', emoji:'🍕', badge:'🏆 Da Casa',    badgeVar:'gold',  ing:'Mussarela, molho de tomate, frango desfiado, lombinho canadense defumado, cream cheese e catupiry' },
-        { name:'5 Carnes',                  emoji:'🥩', badge:'🔥 Top 3',      badgeVar:'red',   ing:'Molho de tomate, mussarela, bacon frito, lombinho canadense, frango desfiado, presunto, calabresa e molho BBQ' },
-        { name:'Frangonese',                emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado, bacon, maionese Heinz, cream cheese e orégano' },
-        { name:'Cheff Especial',            emoji:'👨‍🍳', ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, cebola, orégano e catupiry' },
-        { name:'Carijó',                    emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, palmito, milho, bacon frito, cream cheese e catupiry' },
-        { name:'Padoro',                    emoji:'🍕', ing:'Molho de tomate, mussarela, bacon frito, lombo canadense, calabresa, palmito e catupiry' },
-        { name:'Bacon Supreme',             emoji:'🥓', badge:'🔥 Campeão',    badgeVar:'red',   ing:'Molho de tomate, mussarela, frango desfiado, bacon frito fatiado, palmito e catupiry' },
-        { name:'6 Formaggio',               emoji:'🧀', badge:'⭐ Premium',    badgeVar:'gold',  ing:'Molho de tomate, mussarela, provolone, cream cheese, parmesão, gorgonzola e catupiry' },
-        { name:'Texas Bacon Barbecue',      emoji:'🤠', ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, palmito e molho barbecue Heinz' },
-        { name:'Papa John\'s America',      emoji:'🇺🇸', ing:'Molho de tomate, mussarela, pepperoni americano, bacon frito, calabresa e molho BBQ Heinz' },
-        { name:'Catupperoni',               emoji:'🌶️', ing:'Molho de tomate, mussarela, bacon frito, pepperoni americano e catupiry' },
-        { name:'Peperoni America',          emoji:'🌶️', ing:'Molho de tomate, mussarela e pepperoni americano fatiado' },
-        { name:'Frango Cremoso',            emoji:'🍗', ing:'Molho de tomate, mussarela, frango desfiado, lombo canadense defumado, cebola, orégano e catupiry' },
-        { name:'Frango Aos 3 Queijos',      emoji:'🧀', ing:'Molho de tomate, mussarela, frango desfiado, calabresa, milho, cheddar e catupiry' },
-        { name:'Francheddar',               emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, bacon, cheddar, milho e orégano' },
-        { name:'Super Cheddar',             emoji:'🧀', ing:'Molho de tomate, mussarela, presunto, calabresa, cebola e cheddar derretido' },
-        { name:'Domino\'s',                 emoji:'🍕', ing:'Molho de tomate, mussarela, frango desfiado, palmito, orégano, cebola, calabresa e catupiry' },
-        { name:'Honey',                     emoji:'🍯', ing:'Molho de tomate, mussarela, frango desfiado, presunto, cebola, calabresa e catupiry' },
-        { name:'Villa Cheddar Especial',    emoji:'🧀', ing:'Molho de tomate, mussarela, presunto, milho, calabresa, orégano, cheddar e catupiry' },
-        { name:'Garlic Especial',           emoji:'🧄', ing:'Molho de tomate, mussarela, presunto, bacon frito, alho frito, cebola e catupiry' },
-        { name:'Light Especial',            emoji:'🥗', badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, mussarela, frango desfiado, brócolis, ervilhas frescas, alho desidratado e catupiry' },
-        { name:'Calabresa Egg Especial',    emoji:'🍕', ing:'Molho de tomate, calabresa, cebola, palmito, ovo, mussarela e catupiry' },
-        { name:'Calabresa Especial',        emoji:'🍕', ing:'Molho de tomate, cebola, bacon frito, mussarela, calabresa especial e catupiry' },
-        { name:'Palmito Especial',          emoji:'🥬', ing:'Molho de tomate, mussarela, palmito, milho e bacon frito' },
-        { name:'Portuguesa Especial',       emoji:'🫒', ing:'Molho de tomate, mussarela, presunto, ovo, bacon, calabresa e cebola' },
-        { name:'Vegetariana',               emoji:'🥦', badge:'✓ Vegetariana',badgeVar:'green', ing:'Mussarela, molho de tomate, tomate fatiado, brócolis, milho, palmito, ervilha e gorgonzola' },
-        { name:'Atum Especial',             emoji:'🐟', ing:'Molho de tomate, mussarela, brócolis, alho frito, atum, cebola e catupiry' },
+        { name:'Paulistana a Moda da Casa', img:'especial_Paulistana_a_Moda_da_Casa.avif', badge:'🏆 Da Casa',  badgeVar:'gold', ing:'Mussarela, molho de tomate, frango desfiado, lombinho canadense defumado, cream cheese e catupiry' },
+        { name:'5 Carnes',                  img:'especial_5_Carnes.avif',                  badge:'🔥 Top 3',   badgeVar:'red',  ing:'Molho de tomate, mussarela, bacon frito, lombinho canadense, frango desfiado, presunto, calabresa e molho BBQ' },
+        { name:'Bacon Supreme',             img:'especial_Bacon_Supreme.avif',             badge:'🔥 Campeão', badgeVar:'red',  ing:'Molho de tomate, mussarela, frango desfiado, bacon frito fatiado, palmito e catupiry' },
+        { name:'6 Formaggio',               img:'especial_6_Formaggio.avif',               badge:'⭐ Premium', badgeVar:'gold', ing:'Molho de tomate, mussarela, provolone, cream cheese, parmesão, gorgonzola e catupiry' },
+        { name:'Frangonese',                img:'especial_FRANGONESE.avif',                                    ing:'Molho de tomate, mussarela, frango desfiado, bacon, maionese Heinz, cream cheese e orégano' },
+        { name:'Cheff Especial',            img:'especial_CHEFF_ESPECIAL.avif',                                ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, cebola, orégano e catupiry' },
+        { name:'Carijó',                    img:'especial_Carijó.avif',                                        ing:'Molho de tomate, mussarela, frango desfiado, palmito, milho, bacon frito, cream cheese e catupiry' },
+        { name:'Padoro',                    img:'especial_Padoro.avif',                                        ing:'Molho de tomate, mussarela, bacon frito, lombo canadense, calabresa, palmito e catupiry' },
+        { name:'Texas Bacon Barbecue',      img:'especial_Texas_Bacon_Barbecue.avif',                          ing:'Molho de tomate, mussarela, frango desfiado, bacon frito, palmito e molho barbecue Heinz' },
+        { name:"Papa John's America",       img:"especial_Papa_John's_America.avif",                           ing:'Molho de tomate, mussarela, pepperoni americano, bacon frito, calabresa e molho BBQ Heinz' },
+        { name:'Catupperoni',               img:'especial_Catupperoni.avif',                                   ing:'Molho de tomate, mussarela, bacon frito, pepperoni americano e catupiry' },
+        { name:'Peperoni America',          img:'especial_Peperoni_America.avif',                              ing:'Molho de tomate, mussarela e pepperoni americano fatiado' },
+        { name:'Frango Cremoso',            img:'especial_Frango_Cremoso.avif',                                ing:'Molho de tomate, mussarela, frango desfiado, lombo canadense defumado, cebola, orégano e catupiry' },
+        { name:'Frango Aos 3 Queijos',      img:'especial_Frango_Aos_3_Queijos.avif',                          ing:'Molho de tomate, mussarela, frango desfiado, calabresa, milho, cheddar e catupiry' },
+        { name:'Francheddar',               img:'especial_Francheddar.avif',                                   ing:'Molho de tomate, mussarela, frango desfiado, bacon, cheddar, milho e orégano' },
+        { name:'Super Cheddar',             img:'especial_Super_Cheddar.avif',                                 ing:'Molho de tomate, mussarela, presunto, calabresa, cebola e cheddar derretido' },
+        { name:"Domino's",                  img:'especial_DOMINO´S.avif',                                      ing:'Molho de tomate, mussarela, frango desfiado, palmito, orégano, cebola, calabresa e catupiry' },
+        { name:'Honey',                     img:'especial_HONEY.avif',                                         ing:'Molho de tomate, mussarela, frango desfiado, presunto, cebola, calabresa e catupiry' },
+        { name:'Villa Cheddar Especial',    img:'especial_Villa_Cheddar_Especial.avif',                        ing:'Molho de tomate, mussarela, presunto, milho, calabresa, orégano, cheddar e catupiry' },
+        { name:'Garlic Especial',           img:'especial_Garlic_Especial.avif',                               ing:'Molho de tomate, mussarela, presunto, bacon frito, alho frito, cebola e catupiry' },
+        { name:'Light Especial',            img:'especial_LIGHT_ESPECIAL.avif',  badge:'✓ Vegetariana',badgeVar:'green', ing:'Molho de tomate, mussarela, frango desfiado, brócolis, ervilhas frescas, alho desidratado e catupiry' },
+        { name:'Calabresa Egg Especial',    img:'especial_Calabresa_Egg_Especial.avif',                        ing:'Molho de tomate, calabresa, cebola, palmito, ovo, mussarela e catupiry' },
+        { name:'Calabresa Especial',        img:'especial_Calabresa_Especial.avif',                            ing:'Molho de tomate, cebola, bacon frito, mussarela, calabresa especial e catupiry' },
+        { name:'Palmito Especial',          img:'especial_Palmito_Especial.avif',                              ing:'Molho de tomate, mussarela, palmito, milho e bacon frito' },
+        { name:'Portuguesa Especial',       img:'especial_Portuguesa_Especial.avif',                           ing:'Molho de tomate, mussarela, presunto, ovo, bacon, calabresa e cebola' },
+        { name:'Vegetariana',               img:'especial_Vegetariana.avif',      badge:'✓ Vegetariana',badgeVar:'green', ing:'Mussarela, molho de tomate, tomate fatiado, brócolis, milho, palmito, ervilha e gorgonzola' },
+        { name:'Atum Especial',             img:'especial_Atum_Especial.avif',                                 ing:'Molho de tomate, mussarela, brócolis, alho frito, atum, cebola e catupiry' },
       ]
     },
     doces: {
       label: 'Pizzas Doces',
       infoHtml: `<span>🍫 <strong>Média</strong> (6 fatias) — R$ 50,00</span><span style="color:var(--text-muted)">|</span><span>🍫 <strong>Grande</strong> (8 fatias) — R$ 55,00</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Todas acompanham borda de chocolate grátis!</span>`,
-      precoMedio: 50, precoGrande: 55,
-      tipo: 'pizza',
+      precoMedio: 50, precoGrande: 55, tipo: 'pizza',
       items: [
-        { name:'Chocolate ao Leite',                    emoji:'🍫', badge:'🍫 Doce',badgeVar:'gold', ing:'Cremoso chocolate ao leite derretido. Acompanha borda de chocolate grátis.' },
-        { name:'Chocolate ao Leite c/ Chocolate Branco',emoji:'🤍', badge:'🤍 Doce',badgeVar:'gold', ing:'Combinação de chocolate ao leite e chocolate branco. Borda de chocolate grátis.' },
+        { name:'Chocolate ao Leite',                     img:'doce_CHOCOLATE_AO_LEITE.avif',                       badge:'🍫 Doce',badgeVar:'gold', ing:'Cremoso chocolate ao leite derretido. Acompanha borda de chocolate grátis.' },
+        { name:'Chocolate ao Leite c/ Chocolate Branco', img:'doce_-CHOCOLATE_AO_LEITE_COM_CHOCOLATE_BRANCO.avif', badge:'🤍 Doce',badgeVar:'gold', ing:'Combinação irresistível de chocolate ao leite e chocolate branco. Borda de chocolate grátis.' },
       ]
     },
     sfihas: {
       label: 'Sfihas',
       infoHtml: `<span>🥙 <strong>Preço unitário</strong> — R$ 8,00 cada</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Disponível salgadas e doces</span>`,
-      preco: 8,
-      tipo: 'sfiha',
+      preco: 8, tipo: 'sfiha',
       items: [
-        { name:'3 Queijos',                   emoji:'🧀', badge:'⭐ Popular',  badgeVar:'gold',  ing:'Catupiry, cheddar e mussarela' },
-        { name:'Calabresa',                    emoji:'🍕', ing:'Calabresa e mussarela' },
-        { name:'Frango',                       emoji:'🍗', badge:'🔥 Pedida',  badgeVar:'red',   ing:'Frango desfiado e mussarela' },
-        { name:'Palmito Light',                emoji:'🥬', badge:'✓ Light',    badgeVar:'green', ing:'Palmito e mussarela' },
-        { name:'Bacon',                        emoji:'🥓', ing:'Bacon em cubos e mussarela' },
-        { name:'Presunto',                     emoji:'🍖', ing:'Presunto e mussarela' },
-        { name:'Apimentada',                   emoji:'🌶️', badge:'🌶️ Picante', badgeVar:'red',   ing:'Calabresa, mussarela e pimenta' },
-        { name:'Calabresa c/ Catupiry',        emoji:'🍕', ing:'Calabresa, mussarela e catupiry' },
-        { name:'Paulistana',                   emoji:'🏆', badge:'🏆 Da Casa', badgeVar:'gold',  ing:'Lombinho, catupiry e mussarela' },
-        { name:'Americana',                    emoji:'🇺🇸', ing:'Mussarela, bacon e molho BBQ' },
-        { name:'Frango Cremoso',               emoji:'🍗', ing:'Frango desfiado, catupiry e bacon' },
-        { name:'Cheddar e Bacon',              emoji:'🧀', ing:'Bacon em cubos, catupiry e queijo cheddar' },
-        { name:'Bacon c/ Mussarela e Palmito', emoji:'🥓', ing:'Bacon em cubos, mussarela e palmito' },
-        { name:'Romeu e Julieta',              emoji:'🍓', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Queijo e goiabada' },
-        { name:'Chocolate ao Leite',           emoji:'🍫', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Recheio de chocolate ao leite' },
-        { name:'Chocolate Branco',             emoji:'🤍', badge:'🍫 Doce',    badgeVar:'gold',  ing:'Recheio de chocolate branco' },
+        { name:'3 Queijos',                    img:'sfiha_3_Queijos.avif',                     badge:'⭐ Popular', badgeVar:'gold',  ing:'Catupiry, cheddar e mussarela' },
+        { name:'Frango',                        img:'sfiha_Frango.avif',                        badge:'🔥 Pedida', badgeVar:'red',   ing:'Frango desfiado e mussarela' },
+        { name:'Paulistana',                    img:'sfiha_Paulistana.avif',                    badge:'🏆 Da Casa',badgeVar:'gold',  ing:'Lombinho, catupiry e mussarela' },
+        { name:'Calabresa',                     img:'sfiha_Calabresa.avif',                                        ing:'Calabresa e mussarela' },
+        { name:'Palmito Light',                 img:'sfiha_Palmito_Light.avif',                 badge:'✓ Light',  badgeVar:'green', ing:'Palmito e mussarela' },
+        { name:'Bacon',                         img:'sfiha_Bacon.avif',                                            ing:'Bacon em cubos e mussarela' },
+        { name:'Presunto',                      img:'sfiha_Presunto.avif',                                         ing:'Presunto e mussarela' },
+        { name:'Apimentada',                    img:'sfiha_Apimentada.avif',                    badge:'🌶️ Picante',badgeVar:'red',  ing:'Calabresa, mussarela e pimenta' },
+        { name:'Calabresa c/ Catupiry',         img:'sfiha_Calabresa_Catupiry.avif',                               ing:'Calabresa, mussarela e catupiry' },
+        { name:'Americana',                     img:'sfiha_Americana.avif',                                        ing:'Mussarela, bacon e molho BBQ' },
+        { name:'Frango Cremoso',                img:'sfiha_Frango_Cremoso.avif',                                   ing:'Frango desfiado, catupiry e bacon' },
+        { name:'Cheddar e Bacon',               img:'sfiha_Cheddar_e_Bacon.avif',                                  ing:'Bacon em cubos, catupiry e queijo cheddar' },
+        { name:'Bacon c/ Mussarela e Palmito',  img:'sfiha_Bacon_com_Mussarela_e_Palmito.avif',                    ing:'Bacon em cubos, mussarela e palmito' },
+        { name:'Romeu e Julieta',               img:'sfiha_Romeu_e_Julieta.avif',              badge:'🍫 Doce',   badgeVar:'gold', ing:'Queijo e goiabada' },
+        { name:'Chocolate ao Leite',            img:'sfiha_Chocolate_ao_Leite.avif',            badge:'🍫 Doce',   badgeVar:'gold', ing:'Recheio de chocolate ao leite' },
+        { name:'Chocolate Branco',              img:'sfiha_CHOCOLATE_BRANCO.avif',              badge:'🍫 Doce',   badgeVar:'gold', ing:'Recheio de chocolate branco' },
       ]
     },
     bordas: {
@@ -2189,50 +2194,54 @@
       infoHtml: `<span>🧀 Bordas pagas são cobradas por pizza</span><span style="color:var(--text-muted)">|</span><span style="color:#22c55e">✅ Catupiry, Cheddar e Chocolate são GRÁTIS em todas as pizzas!</span>`,
       tipo: 'borda',
       items: [
-        { name:'Catupiry',        emoji:'🤍', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com catupiry cremoso' },
-        { name:'Cheddar',         emoji:'🧀', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com cheddar derretido' },
-        { name:'Chocolate',       emoji:'🍫', preco:'Grátis', badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com chocolate ao leite (pizzas doces)' },
-        { name:'Mussarela',       emoji:'🧀', preco:'R$ 10,00', ing:'Borda recheada com mussarela derretida' },
-        { name:'Mussarela e Bacon',emoji:'🥓',preco:'R$ 10,00', ing:'Borda recheada com mussarela e bacon crocante' },
-        { name:'Catupiry e Bacon', emoji:'🤍',preco:'R$ 10,00', ing:'Borda recheada com catupiry e bacon frito' },
-        { name:'Cheddar e Bacon',  emoji:'🧀',preco:'R$ 15,00', badge:'⭐ Premium', badgeVar:'gold', ing:'Borda recheada com cheddar e bacon frito (a mais pedida!)' },
+        { name:'Catupiry',          emoji:'🤍', preco:'Grátis',   badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com catupiry cremoso' },
+        { name:'Cheddar',           emoji:'🧀', preco:'Grátis',   badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com cheddar derretido' },
+        { name:'Chocolate',         emoji:'🍫', preco:'Grátis',   badge:'✅ Grátis', badgeVar:'green', ing:'Borda recheada com chocolate ao leite (pizzas doces)' },
+        { name:'Mussarela',         emoji:'🧀', preco:'R$ 10,00',                                       ing:'Borda recheada com mussarela derretida' },
+        { name:'Mussarela e Bacon', emoji:'🥓', preco:'R$ 10,00',                                       ing:'Borda recheada com mussarela e bacon crocante' },
+        { name:'Catupiry e Bacon',  emoji:'🤍', preco:'R$ 10,00',                                       ing:'Borda recheada com catupiry e bacon frito' },
+        { name:'Cheddar e Bacon',   emoji:'🧀', preco:'R$ 15,00', badge:'⭐ Premium',badgeVar:'gold',   ing:'Borda recheada com cheddar e bacon frito — a mais pedida!' },
       ]
     }
   };
 
   // ── Render Functions ───────────────────────────────────────
   function pizzaCardHTML(item, tipo, cat) {
-    const isSfiha  = tipo === 'sfiha';
-    const isBorda  = tipo === 'borda';
-    const catData  = MENU[cat];
+    const isSfiha = tipo === 'sfiha';
+    const isBorda = tipo === 'borda';
+    const catData = MENU[cat];
 
     let priceHTML;
     if (isSfiha) {
-      priceHTML = `<span class="pizza-card__price-label">Unitário</span>
-                   <span class="pizza-card__price">R$ 8,00</span>`;
+      priceHTML = `<span class="pizza-card__price-label">Unitário</span><span class="pizza-card__price">R$ 8,00</span>`;
     } else if (isBorda) {
-      priceHTML = `<span class="pizza-card__price-label">Borda</span>
-                   <span class="pizza-card__price" style="font-size:var(--text-xl)">${item.preco || ''}</span>`;
+      priceHTML = `<span class="pizza-card__price-label">Borda</span><span class="pizza-card__price" style="font-size:var(--text-xl)">${item.preco || ''}</span>`;
     } else {
-      priceHTML = `<span class="pizza-card__price-label">Média R$ ${catData.precoMedio} · Grande R$ ${catData.precoGrande}</span>
-                   <span class="pizza-card__price">R$ ${catData.precoMedio},00</span>`;
+      priceHTML = `<span class="pizza-card__price-label">Média R$ ${catData.precoMedio} · Grande R$ ${catData.precoGrande}</span><span class="pizza-card__price">R$ ${catData.precoMedio},00</span>`;
     }
 
     const badgeHTML = item.badge
       ? `<div class="pizza-card__badges"><span class="badge badge--${item.badgeVar || 'red'}">${item.badge}</span></div>`
       : '';
 
-    const addLabel = isBorda ? 'Pedir com essa borda' : `Pedir ${item.name}`;
+    const imgHTML = item.img
+      ? `<img src="sabores/${item.img}" alt="${item.name}" class="pizza-card__real-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+         <div class="pizza-card__img" style="display:none" aria-hidden="true">${item.emoji || '🍕'}</div>`
+      : `<div class="pizza-card__img" role="img" aria-label="${item.name}">${item.emoji || '🍕'}</div>`;
+
+    const safeName = item.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
     const msg = isBorda
       ? `Olá! Quero adicionar a borda de ${item.name} na minha pizza 🧀`
       : isSfiha
         ? `Olá! Quero pedir a sfiha de ${item.name} 🥙 Quantas unidades?`
         : `Olá! Quero pedir a pizza ${item.name} 🍕 Qual tamanho, média ou grande?`;
+    const safeMsg = msg.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
 
     return `
       <article class="pizza-card" aria-label="${item.name}">
         <div class="pizza-card__img-wrap">
-          <div class="pizza-card__img" role="img" aria-label="${item.name}">${item.emoji}</div>
+          ${imgHTML}
           ${badgeHTML}
           <button class="pizza-card__fav" onclick="toggleFav(this)" aria-label="Favoritar ${item.name}">🤍</button>
         </div>
@@ -2241,8 +2250,8 @@
           <p class="pizza-card__ingredients">${item.ing}</p>
           <div class="pizza-card__footer">
             <div class="pizza-card__prices">${priceHTML}</div>
-            <button class="pizza-card__add-btn" onclick="addToOrder('${item.name.replace(/'/g,"\\'")}','${msg.replace(/'/g,"\\'")}')
-" aria-label="${addLabel}" title="Pedir pelo WhatsApp">+</button>
+            <button class="pizza-card__add-btn" onclick="addToOrder('${safeName}','${safeMsg}')"
+              aria-label="Pedir ${item.name}" title="Pedir pelo WhatsApp">+</button>
           </div>
         </div>
       </article>`;
